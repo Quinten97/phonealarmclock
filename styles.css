@@ -24,7 +24,7 @@ body {
 }
 
 #currentTime {
-  font-size: 150px;
+  font-size: 100px;
 }
 
 #weather-container {
@@ -36,8 +36,8 @@ body {
 }
 
 img {
-  width: 150px;
-  height: 150px;
+  width: 100px;
+  height: 100px;
 }
 
 #temperature,
