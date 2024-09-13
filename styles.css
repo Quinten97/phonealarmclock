@@ -11,8 +11,8 @@ body {
   font-style: normal;
   text-align: center;
   color: white;
-  width: 1080px;
-  height: 2400px;
+  width: 100vw;
+  height: 100vh;
   display: grid;
   grid-template-columns: 1fr 1fr;
   place-items: center;
@@ -24,7 +24,7 @@ body {
 }
 
 #currentTime {
-  font-size: 100px;
+  font-size: 10rem;
 }
 
 #weather-container {
@@ -36,13 +36,13 @@ body {
 }
 
 img {
-  width: 100px;
-  height: 100px;
+  width: 10rem;
+  height: 10rem;
 }
 
 #temperature,
 #precipitation,
 #uvIndex {
-  margin-top: 20px;
-  font-size: 50px;
+  margin-top: 2rem;
+  font-size: 3rem;
 }
