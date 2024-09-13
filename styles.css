@@ -11,8 +11,8 @@ body {
   font-style: normal;
   text-align: center;
   color: white;
-  width: 100vw;
-  height: 100vh;
+  width: 1080px;
+  height: 2400px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   place-items: center;
