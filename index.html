@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Weather PWA" />
+    <meta name="theme-color" content="#2196F3" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="/manifest.json" />
+    <link
+      rel="preload"
+      href="styles.css"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <title>Favorite Alarm</title>
+  </head>
+  <body>
+    <div class="time-container">
+      <div id="currentTime">Loading Time...</div>
+    </div>
+    <div id="weather-container">
+      <div id="temp-container">
+        <img src="./temp.svg" alt="temp icon" />
+        <div class="weather-info" id="temperature">Loading Temperature...</div>
+      </div>
+      <div id="precipitation-container">
+        <img src="./clear.svg" alt="rain icon" />
+        <div class="weather-info" id="precipitation">
+          Loading Precipitation...
+        </div>
+      </div>
+      <div id="uv-container">
+        <img src="./uv.svg" alt="uv icon" />
+        <div class="weather-info" id="uvIndex">Loading UV Index...</div>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+    <script src="./script.js"></script>
+  </body>
+</html>
