@@ -31,6 +31,8 @@ const requestWakeLock = async () => {
   }
 };
 
+requestWakeLock();
+
 // Request the wake lock when the PWA is active
 document.addEventListener("visibilitychange", () => {
   if (document.visibilityState === "visible") {
