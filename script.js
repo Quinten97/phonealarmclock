@@ -20,12 +20,8 @@ let wakeLock = null;
 const requestWakeLock = async () => {
   try {
     wakeLock = await navigator.wakeLock.request("screen");
-    console.log("Wake lock activated");
-
     // Re-activate the lock if it gets released
-    wakeLock.addEventListener("release", () => {
-      console.log("Wake lock released");
-    });
+    wakeLock.addEventListener("release", () => {});
   } catch (err) {
     console.error(`Error: ${err.message}`);
   }

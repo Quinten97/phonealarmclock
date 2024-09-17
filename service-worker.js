@@ -1,41 +1,26 @@
-const CACHE_NAME = "my-pwa-cache-v1";
-const urlsToCache = ["/", "/app.js"]; // Removed "/index.html" and "/styles.css"
-
-// Install the service worker and cache files
+// Install the service worker without caching anything
 self.addEventListener("install", (event) => {
+  console.log("Service worker installed, but not caching any files.");
+  // Force the waiting service worker to become active immediately
+  self.skipWaiting();
+});
+
+// Activate the service worker and take control of all pages immediately
+self.addEventListener("activate", (event) => {
   event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => {
-      console.log("Opened cache");
-      return cache.addAll(urlsToCache); // Only caching necessary files
-    })
+    clients.claim() // Take control of all clients (pages) immediately
   );
 });
 
-// Fetch files from cache when offline
+// Intercept fetch requests and always bypass cache
 self.addEventListener("fetch", (event) => {
-  // Always bypass cache and fetch the latest index.html from the network
-  if (event.request.url.endsWith("index.html")) {
-    event.respondWith(fetch(event.request));
-    return;
-  }
-
-  // Bypass cache for CSS files as well
-  if (event.request.url.endsWith(".css")) {
-    event.respondWith(fetch(event.request));
-    return;
-  }
-
-  // Fetch from cache if available, else fallback to network
-  event.respondWith(
-    caches.match(event.request).then((response) => {
-      return response || fetch(event.request);
-    })
-  );
+  // Always fetch from the network, never use cache
+  event.respondWith(fetch(event.request));
 });
 
+// Optional: Handle orientation lock
 if (screen.orientation && screen.orientation.lock) {
-    screen.orientation.lock('landscape').catch(function(error) {
-        console.error('Orientation lock failed: ', error);
-    });
+  screen.orientation.lock("landscape").catch(function (error) {
+    console.error("Orientation lock failed: ", error);
+  });
 }
-
