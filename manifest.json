@@ -1,6 +1,7 @@
 {
   "name": "Favorite Alarm",
   "short_name": "WeatherApp",
+  "orientation": "landscape",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
