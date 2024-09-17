@@ -25,6 +25,7 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   place-items: center;
+  gap: 1rem;
 }
 
 img {
@@ -37,4 +38,14 @@ img {
 #uvIndex {
   margin-top: 1rem;
   font-size: 1.5rem;
+}
+
+.gif-container {
+  z-index: -5;
+  position: fixed;
+  width: 50%;
+  height: 100%;
+  opacity: 40%;
+  padding: 2rem;
+  border-radius: 100%;
 }
