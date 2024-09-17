@@ -32,3 +32,10 @@ self.addEventListener("fetch", (event) => {
     })
   );
 });
+
+if (screen.orientation && screen.orientation.lock) {
+    screen.orientation.lock('landscape').catch(function(error) {
+        console.error('Orientation lock failed: ', error);
+    });
+}
+
