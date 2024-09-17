@@ -71,6 +71,22 @@ function getLocation() {
   }
 }
 
+  const apiKey = 'oKHaqU768jbwUedqzig3wuSu8pBv4kll';
+  const url = `https://api.giphy.com/v1/gifs/trending?api_key=${apiKey}&limit=1`; // Limit to 1 to get just one GIF
+
+
+  const response = await fetch(URL).then((data) => data.json).then((data) => {
+    const gifUrl = data.data[0]?.images?.original?.url;
+    
+    if (gifUrl) {
+      // Update the src of the image element
+      document.querySelector('.gif-container').src = gifUrl;
+    } 
+    else {
+      console.error('No GIF URL found');
+    }
+  }) 
+
 // Initialize the app
 function init() {
   displayTime();
